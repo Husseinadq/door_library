@@ -1,35 +1,35 @@
 @extends('frontend.layouts.app')
 @section('content')
-<header class="header">
-    <div class="container">
-      <a href="{{ route('home') }}" class="logo">
-        <img src="{{ asset('images/logo.png') }}" alt="شعار المكتبة">
-        <h1>{{ config('app.name') }}</h1>
-      </a>
-
-      <nav class="navigation">
-        <ul>
-          <li><a href="{{ route('home') }}">الصفحة الرئيسية</a></li>
-          <li><a href="{{ route('books') }}">الكتب</a></li>
-          <li><a href="{{ route('about') }}">عن المكتبة</a></li>
-          </ul>
-      </nav>
-
-      <form action="{{ route('search') }}" method="GET" class="search-form">
-        <input type="text" name="q" placeholder="البحث عن الكتب">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </form>
-
-      @auth
-        <div class="user-actions">
-          <a href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
-          <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit">تسجيل الخروج</button>
-          </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/assets/css/custom.css">
+    <script src="public/assets/js/custom.js" defer></script>
+    <title>Electronic Library</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Electronic Library</h1>
         </div>
-      @endauth
-    </div>
-  </header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Browse</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Create Account</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button id="search-btn">Search</button>
+        </div>
+    </header>
+    <!-- Rest of the page content -->
+</body>
+</html>
 
   @endsection

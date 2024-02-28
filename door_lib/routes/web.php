@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoorController;
+use App\Http\Controllers\backend\AuthorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,7 @@ use App\Http\Controllers\DoorController;
    // return view('welcome');
 //});
 
+// Route::resource('books', BookController::class);
+
 Route::get('/',[DoorController::class,'index']);
+Route::get('author/index', [AuthorController::class, 'index'])->name('author.index');
