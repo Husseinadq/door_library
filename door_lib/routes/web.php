@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\backend\AuthorController;
+use App\Http\Controllers\backend\PublisherController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +23,9 @@ use App\Http\Controllers\backend\AuthorController;
 
 Route::get('/',[DoorController::class,'index']);
 Route::get('author/index', [AuthorController::class, 'index'])->name('author.index');
+
+
+Route::get('/publisher/index',[PublisherController::class,'index'])->name('publisher.index');
+Route::get('/publisher/create',[PublisherController::class,'create'])->name('publisher.create');
+Route::get('/publisher/edit',[PublisherController::class,'edit'])->name('publisher.edit');
+Route::post('/publisher/store',[PublisherController::class,'store'])->name('publisher.store');
