@@ -1,15 +1,5 @@
-@extends('frontend.layouts.app')
-@section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/assets/css/custom.css">
-    <script src="public/assets/js/custom.js" defer></script>
-    <title>Electronic Library</title>
-</head>
-<body>
+
+
     <!-- Rest of the page content -->
     <footer>
         <div class="footer-container">
@@ -37,7 +27,4 @@
             <p>&copy; 2023 Electronic Library. All rights reserved.</p>
         </div>
     </footer>
-</body>
-</html>
-@endsection
 
