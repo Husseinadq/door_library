@@ -8,7 +8,7 @@ class CreateAuthorsTable extends Migration
 {
     public function up()
 {
-    Schema::create('books', function (Blueprint $table) {
+    Schema::create('author', function (Blueprint $table) {
         $table->id();
         $table->string('title');
         $table->string('author');
