@@ -5,8 +5,6 @@
 <div class="container">
    
 
-    
-  
 
     <div class="row">
         @foreach ($publishers as $publisher )
@@ -21,7 +19,7 @@
               </div>
             </div>
         </div>
-            
+              
         @endforeach
 
     </div>

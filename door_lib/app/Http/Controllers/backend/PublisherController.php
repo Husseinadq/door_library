@@ -15,7 +15,9 @@ class PublisherController extends Controller
     {
 
         $publishers=Publisher::all();
-        return view('backend.publisher.index',compact('publishers'));   
+        $title= 'create';
+
+        return view('backend.publisher.index',compact('publishers','title'));   
     }
     
    public function create(){
@@ -43,7 +45,7 @@ class PublisherController extends Controller
 
    public function edit(){
     return view('backend.publisher.edit');
-   } 
+   }  
 
 
 
