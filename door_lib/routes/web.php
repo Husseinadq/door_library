@@ -25,7 +25,14 @@ Route::get('/',[DoorController::class,'index']);
 Route::get('author/index', [AuthorController::class, 'index'])->name('author.index');
 
 
+
 Route::get('/publisher/index',[PublisherController::class,'index'])->name('publisher.index');
 Route::get('/publisher/create',[PublisherController::class,'create'])->name('publisher.create');
-Route::get('/publisher/edit',[PublisherController::class,'edit'])->name('publisher.edit');
 Route::post('/publisher/store',[PublisherController::class,'store'])->name('publisher.store');
+Route::get('/publisher/edit/{id}',[PublisherController::class,'edit'])->name('publisher.edit');
+
+
+Route::post('/publisher/update/{id}',[PublisherController::class,'update'])->name('publisher.update');
+
+Route::get('/dashboard/index',[PublisherController::class,'index_dash'])->name('dashboard.index');
+Route::get('/publisher/delete/{id}', [PublisherController::class, 'delete'])->name('publisher.delete');

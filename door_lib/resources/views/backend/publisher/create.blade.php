@@ -1,10 +1,12 @@
 @extends('backend.layouts.app')
+
 @section('content')
+
 <div class="container">
-   
-   <form method="POST" action="{{route('publisher.store')}}" enctype="multipart/form-data">
+
+<form method="POST" action="{{route('publisher.store')}}" enctype="multipart/form-data">
     @csrf
-      <div class="mb-3 row">
+    <div class="mb-3 row">
         <label for="inputName" class="col-sm-2 col-form-label">اسم دار النشر</label>
         <div class="col-sm-10">
           <input type="text" name="pub_name" class="form-control" id="inputPub">
@@ -41,9 +43,15 @@
         <button class="btn btn-primary" type="submit">ادخال</button>
       </div>
 
-    </form>
+      <br>
 
-
+     
+</form>
 
 </div>
+
+
+
+
+
 @endsection

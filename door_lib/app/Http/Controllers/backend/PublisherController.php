@@ -43,10 +43,51 @@ class PublisherController extends Controller
 
    } 
 
-   public function edit(){
-    return view('backend.publisher.edit');
-   }  
+   public function edit($id)
+      {
+        $publisher= Publisher::find($id);   
 
+       return view('backend.publisher.edit',compact('publisher'));
+      }
+
+
+      public function update(Request $request,$id)
+      {
+        $publisher= Publisher::find($id);
+
+        $publisher->name=$request->pub_name;
+        $publisher->pub_websit=$request->input_websit;
+        $publisher->decripton=$request->pub_dec;
+        $publisher->icon='';
+        $publisher->save();
+
+        return redirect()->route('publisher.index'); 
+
+
+      }
+
+      public function delete(Request $request,$id)
+      {
+
+    
+        $publisher= Publisher::find($id);
+        $publisher->delete();
+
+
+      
+        return redirect()->route('publisher.index')->with('success', 'Publisher deleted successfully!');
+
+      }
+
+
+
+
+
+
+      public function index_dash()
+      {
+          return view('backend.dashboard.index');
+      }
 
 
 
