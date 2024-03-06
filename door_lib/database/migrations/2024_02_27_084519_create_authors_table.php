@@ -10,11 +10,8 @@ class CreateAuthorsTable extends Migration
 {
     Schema::create('author', function (Blueprint $table) {
         $table->id();
-        $table->string('title');
-        $table->string('author');
+        $table->string('name');
         $table->text('description');
-        $table->date('published_date');
-        $table->string('isbn');
         $table->string('cover_image');
     });
 }

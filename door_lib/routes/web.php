@@ -29,3 +29,4 @@ Route::get('/publisher/index',[PublisherController::class,'index'])->name('publi
 Route::get('/publisher/create',[PublisherController::class,'create'])->name('publisher.create');
 Route::get('/publisher/edit',[PublisherController::class,'edit'])->name('publisher.edit');
 Route::post('/publisher/store',[PublisherController::class,'store'])->name('publisher.store');
+

@@ -2,8 +2,8 @@
 @section('content')
 <div class="container">
     <div class="row">
+{{-- The main facade --}}
 
-       dfg
     </div>
 </div>
 @endsection
