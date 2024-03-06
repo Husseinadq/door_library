@@ -3,18 +3,21 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
+            @foreach ($books as $book)
             <div class="card">
-                <div class="card-header">
-                    <h2>{{ $book->title }}</h2>
-                </div>
-                <div class="card-body">
-                    <img src="{{ $book->image }}" alt="{{ $book->title }}" class="img-fluid">
-                    <p>{{ $book->description }}</p>
-                    <p><strong>المؤلف:</strong> {{ $book->author }}</p>
-                    <p><strong>الناشر:</strong> {{ $book->publisher }}</p>
-                    <p><strong>تاريخ النشر:</strong> {{ $book->publication_date }}</p>
-                    <p><strong>رقم ISBN:</strong> {{ $book->isbn }}</p>
-                </div>
+
+               <div class="card-header">
+                <h2>{{ $book->title }}</h2>
+            </div>
+            <div class="card-body">
+                <img src="{{ $book->image }}" alt="{{ $book->title }}" class="img-fluid">
+                <p>{{ $book->description }}</p>
+                <p><strong>المؤلف:</strong> {{ $book->author }}</p>
+                <p><strong>الناشر:</strong> {{ $book->publisher }}</p>
+                <p><strong>تاريخ النشر:</strong> {{ $book->publication_date }}</p>
+                <p><strong>رقم ISBN:</strong> {{ $book->isbn }}</p>
+            </div>
+               @endforeach
             </div>
         </div>
         <div class="col-md-4">
