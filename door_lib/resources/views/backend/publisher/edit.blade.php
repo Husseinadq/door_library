@@ -1,6 +1,8 @@
 @extends('backend.layouts.app')
 
 @section('content')
+<main class="main">
+
 <div class="container">
   <h1 class="h3 mb-3">تعديل دار نشر</h1>
 
@@ -21,7 +23,7 @@
     <div class="row mb-3">
       <label for="pub_websit" class="col-sm-3 col-form-label">الموقع الإلكتروني</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="pub_websit" name="pub_websit" value="{{ $publisher->pub_websit }}">
+        <input type="email" class="form-control" id="pub_websit" name="pub_websit" value="{{ $publisher->pub_websit }}">
         @error('pub_websit')
           <span class="invalid-feedback" role="alert">
             {{ $message }}
@@ -57,4 +59,5 @@
     <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
   </form>
 </div>
+</main>
 @endsection

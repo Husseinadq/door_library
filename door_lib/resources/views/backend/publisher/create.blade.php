@@ -2,56 +2,64 @@
 
 @section('content')
 
+
+<main class="main">
 <div class="container">
+  <h1 class="h3 mb-3">إضافة دار نشر جديدة</h1>
 
-<form method="POST" action="{{route('publisher.store')}}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('publisher.store') }}" enctype="multipart/form-data">
     @csrf
-    <div class="mb-3 row">
-        <label for="inputName" class="col-sm-2 col-form-label">اسم دار النشر</label>
-        <div class="col-sm-10">
-          <input type="text" name="pub_name" class="form-control" id="inputPub">
-        </div>
+    <div class="row mb-3">
+      <label for="pub_name" class="col-sm-3 col-form-label">اسم دار النشر*</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="pub_name" name="pub_name" required>
+        @error('pub_name')
+          <span class="invalid-feedback" role="alert">
+            {{ $message }}
+          </span>
+        @enderror
       </div>
+    </div>
 
-      <div class="mb-3 row">
-        <label for="inputWebsit" class="col-sm-2 col-form-label">الموقع الالكتروني</label>
-        <div class="col-sm-10">
-          <input type="text" name="input_websit" class="form-control" id="inputWebsit">
-        </div>
+    <div class="row mb-3">
+      <label for="pub_websit" class="col-sm-3 col-form-label">الموقع الإلكتروني</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="pub_websit" name="pub_websit">
+        @error('pub_websit')
+          <span class="invalid-feedback" role="alert">
+            {{ $message }}
+          </span>
+        @enderror
       </div>
+    </div>
 
-
-      <div class="mb-3">
-        <label for="formFileSm" class="form-label">شعار دار النشر</label>
-        <input class="form-control form-control-sm" name="pub_cov" id="formFileSm" type="file">
+    <div class="row mb-3">
+      <label for="pub_cov" class="col-sm-3 col-form-label">شعار دار النشر</label>
+      <div class="col-sm-9">
+        <input type="file" class="form-control form-control-sm" id="pub_cov" name="pub_cov">
+        @error('pub_cov')
+          <span class="invalid-feedback" role="alert">
+            {{ $message }}
+          </span>
+        @enderror
       </div>
-      
+    </div>
 
-
-     
-
-
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label"> الوصف</label>
-        <textarea class="form-control"  name="pub_dec" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <div class="row mb-3">
+      <label for="pub_dec" class="col-sm-3 col-form-label">الوصف</label>
+      <div class="col-sm-9">
+        <textarea class="form-control" id="pub_dec" name="pub_dec" rows="3"></textarea>
+        @error('pub_dec')
+          <span class="invalid-feedback" role="alert">
+            {{ $message }}
+          </span>
+        @enderror
       </div>
+    </div>
 
-
-
-      <div class="d-grid gap-2">
-       
-        <button class="btn btn-primary" type="submit">ادخال</button>
-      </div>
-
-      <br>
-
-     
-</form>
-
+    <button type="submit" class="btn btn-primary">إضافة دار النشر</button>
+  </form>
 </div>
-
-
-
-
+</main>
 
 @endsection

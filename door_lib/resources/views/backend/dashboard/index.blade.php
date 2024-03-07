@@ -1,6 +1,8 @@
 @extends('backend.layouts.app')
 
 @section('content')
+
+<main class="main">
    <!-- Breadcrumb -->
    <ol class="breadcrumb">
     <li class="breadcrumb-item">بيت</li>
@@ -113,5 +115,8 @@
 
 </div>
 <!--/.container-fluid-->
+
+
+</main>
 
 @endsection
