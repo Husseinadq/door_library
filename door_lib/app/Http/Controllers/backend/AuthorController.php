@@ -1,20 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\backend;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
     public function index (){
-        $books = Book::all();
         return view('backend.authors.index');
     }
 
     public function create()
     {
-        return view('books.create');
+        return view('backend.authors.index');
     }
 
     public function store(Request $request)
@@ -59,5 +57,20 @@ class AuthorController extends Controller
             'isbn' => 'required|string|max:13',
             'cover_image' => 'sometimes|image|mimes:jpeg'
         ]);
+        }
+        public function show(int $id)
+        {
+            $author = Author::findOrFail($id);
+            $posts = $author->getAuthorPosts();
+
+            // public function show(int $id)
+    {
+        $author = Author::findOrFail($id);
+        $posts = $author->getAuthorPosts();
+
+        // Pass the posts to the view
+        return view('author.show', ['posts' => $posts]);
+    }
+            return view('author.show', ['posts' => $posts]);
         }
 }

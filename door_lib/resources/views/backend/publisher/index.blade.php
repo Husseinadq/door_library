@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+<main class="main">
 <div class="container mt-4">
     <div class="row">
         @foreach ($publishers as $publisher)
@@ -29,4 +31,5 @@
     </div>
 </div>
 
+</main>
 @endsection

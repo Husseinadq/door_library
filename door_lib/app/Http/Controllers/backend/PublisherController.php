@@ -31,7 +31,7 @@ class PublisherController extends Controller
 
      $publisher=new Publisher;
      $publisher->name=$request->pub_name;
-     $publisher->pub_websit=$request->input_websit;
+     $publisher->pub_websit=$request->pub_websit;
      $publisher->decripton=$request->pub_dec;
      $publisher->icon='';
      $publisher->save();
@@ -56,7 +56,7 @@ class PublisherController extends Controller
         $publisher= Publisher::find($id);
 
         $publisher->name=$request->pub_name;
-        $publisher->pub_websit=$request->input_websit;
+        $publisher->pub_websit=$request->pub_websit;
         $publisher->decripton=$request->pub_dec;
         $publisher->icon='';
         $publisher->save();
