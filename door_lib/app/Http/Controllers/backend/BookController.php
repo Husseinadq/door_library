@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -12,8 +11,6 @@ class BookController extends Controller
     public function index()
    {
     $books = Book::all();
-//    return  dd($books);
-
     return view('backend.book.index',compact('books'));
 
    }
@@ -29,6 +26,7 @@ class BookController extends Controller
         'title'=> 'required',
         'author'=> 'required',
         'language'=> 'required',
+        'image'=>'required'
     ]);
 
     $temp=  new Book();

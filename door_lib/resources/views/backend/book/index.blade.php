@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-{{-- @extends('frontend.inc.header')
+{{-- {{-- @extends('frontend.inc.header') --}}
 @extends('frontend.inc.footer') --}}
 
 @section('content')
@@ -8,8 +8,10 @@
     <div class="row">
        @foreach ($books as $book )
        <div class="card col-4">
-        <img src="{{ asset('assets/img/'.$book->image) }}">
 
+        {{-- <div class="cover"> --}}
+            <img src="{{ asset('assets/img/'.$book->image) }}">
+          {{-- </div> --}}
         <div class="card-body ">
           <h5 class="card-title">{{$book->title}}</h5>
           <p class="card-text">{{$book->author}}</p>
