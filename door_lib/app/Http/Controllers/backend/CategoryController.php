@@ -38,7 +38,7 @@ class CategoryController extends Controller
  }
     public function edit( $id)
     {
-    $temp= Book::findOrFail($id);
+    $temp= Category::findOrFail($id);
     return view('backend.category.edit',compact('temp'));
 
     }
@@ -51,13 +51,13 @@ class CategoryController extends Controller
      ]);
 
 
-     $book=Category::find($id);
-     $temp->name=$request->name;
-     $temp->description=$request->description;
+     $category=Category::find($id);
+     $category->name=$request->name;
+     $category->description=$request->description;
     //  $temp->parent_id=$request->parent_id;
 
 
-     $book->save();
+     $category->save();
 
         return redirect( )->route('category.index')->with('status','Categort update');
  }

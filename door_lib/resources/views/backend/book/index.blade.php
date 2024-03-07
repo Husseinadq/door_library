@@ -1,6 +1,5 @@
 @extends('frontend.layouts.app')
 {{-- {{-- @extends('frontend.inc.header') --}}
-@extends('frontend.inc.footer') --}}
 
 @section('content')
 <br>

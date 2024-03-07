@@ -1,17 +1,21 @@
-@extends('frontend.layouts.app')
+@extends('backend.layouts.app')
 {{-- {{-- @extends('frontend.inc.header') --}}
 
 @section('content')
-@foreach ($categories as $category)
+
+
+<main class="main">
+
 <div class="container">
     <div class="row">
         <div class="col-2">
-             <a href="{{route('category.create')}}" class="btn btn-primary btn_1">Edit</a>
+             <a href="{{route('category.create')}}" class="btn btn-primary btn_1">Add</a>
         </div>
 
     </div>
     <div class="row">
-       <div class="card col-6">
+        @foreach ($categories as $category)
+       <div class="card col-3">
         <div class="card-body ">
           <h5 class="card-title">{{ $category->name }}</h5>
            <p class="card-text">{{$category->description}}</p>
@@ -22,15 +26,10 @@
          </div>
         </div>
       </div>
-    {{-- <div class="card col-4">
-        <div class="card-header">
-            {{ $category->name }}
-        </div>
-        <div class="card-body">
-            <ul>
-                <li>{{ $category->description }}</li>
-            </ul>
-        </div>
-    </div> --}}
-@endforeach
+        @endforeach
+
+    </div>
+</div>
+
+</main>
 @endsection
