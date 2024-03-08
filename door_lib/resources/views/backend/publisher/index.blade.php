@@ -24,9 +24,9 @@
                         <img src="{{ asset('adminassets/images/offers/' . $publisher->photo) }}" alt="avatar"
                             class="card-img-top" style="width: 200px; height: 150px; border-radius:50% ">
                         <div class="card-body">
-                            <h5 class="card-title">اسم دار النشر: {{ $publisher->name }}</h5>
-                            <p class="card-text">موقع الدار: {{ $publisher->pub_websit }}</p>
-                            <p class="card-text">وصف الدار: {{ $publisher->decripton }}</p>
+                            <h5 class="card-title">اسم الدار: {{ $publisher->name }}</h5>
+                            <p class="card-text">الايميل: {{ $publisher->pub_websit }}</p>
+                            <p class="card-text">الوصف: {{ $publisher->decripton }}</p>
                             <a href="{{ route('publisher.edit', $publisher->id) }}" class="btn btn-primary"
                                 id="but1">تعديل</a>
                             <a href="{{ route('publisher.delete', $publisher->id) }}" class="btn btn-primary"

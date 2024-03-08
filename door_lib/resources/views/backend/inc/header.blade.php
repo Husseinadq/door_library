@@ -15,11 +15,12 @@
         </ul>
         <ul class="nav navbar-nav pull-left hidden-md-down">
             <li class="nav-item">
-                <a class="" href="333"><i class="333">   الذهاب الى الموقع </i><span class=""></span></a>
+                <a href="#" class="btn btn-primary"
+                    id="but1">الذهاب الى الموقع</a>
             </li>
            
            
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
                     <span class="hidden-md-down">مدیر</span>
@@ -34,7 +35,7 @@
                     <div class="divider"></div>
                     <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> خروج</a>
                 </div>
-            </li>
+            </li> --}}
           
 
         </ul>
