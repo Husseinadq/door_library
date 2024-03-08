@@ -3,7 +3,7 @@
 @section('content')
 
 
-<main class="main">
+    <main class="main">
 <div class="container mt-4">
     <div class="row">
         @foreach ($publishers as $publisher)

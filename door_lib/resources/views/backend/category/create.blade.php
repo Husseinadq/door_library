@@ -10,23 +10,23 @@
                     <h2>  انشر كتابك الان </h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('book.store') }}" method="post">
+                    <form action="{{ route('category.store') }}" method="post">
                         @csrf
-                        <input  accept="image/*" type='file' id="imgInp" />
-                        <img id="blah" src="#" alt="your image" />
+                        {{-- <input  accept="image/*" type='file' id="imgInp" />
+                        <img id="blah" src="#" alt="your image" /> --}}
                         <div class="form-group">
-                            <label for="title">عنوان الكتاب</label>
-                            <input type="text" name="title" id="title" class="form-control">
+                            <label for="name">اسم المحتوى</label>
+                            <input type="text" name="name" id="name" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="author">المؤلف</label>
-                            <input type="text" name="author" id="author" class="form-control">
+                            <label for="description">وصفه</label>
+                            <input type="text" name="description" id="description" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="lang">اللغه </label>
+                        {{-- <div class="form-group">
+                            <label for="parent_id">اللغه </label>
 
-                            <input type="text" name="language" id="language" class="form-control">
-                        </div>
+                            <input type="integer" name="parent_id" id="parent_id" class="form-control">
+                        </div> --}}
                         <br>
                         <div class="mb-3">
                             <button type="submit"class="btn btn-primary">save</button>

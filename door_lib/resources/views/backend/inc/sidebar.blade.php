@@ -18,10 +18,10 @@
               القائمة
             </li>
              <li class="nav-item">
-                
-                <a class="nav-link" href="#"><i class="icon-docs"></i>  كتاب</a>
+
+                <a class="nav-link" href="{{route("book.index")}}"><i class="icon-docs"></i>  كتاب</a>
                 <a class="nav-link" href="#"><i class="icon-docs"></i>  مؤلف</a>
-                <a class="nav-link" href={{route("publisher.index")}}><i class="icon-docs"></i>  دار نشر</a>
+                <a class="nav-link" href="{{route("publisher.index")}}"><i class="icon-docs"></i>  دار نشر</a>
             </li>
 
             <li class="nav-title">
@@ -29,9 +29,9 @@
             </li>
              <li class="nav-item">
                 <a class="nav-link" href="#"><i class="icon-people"></i>المستخدمين</a>
-                
+
             </li>
-            
+
         </ul>
     </nav>
 </div>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->integer('parent_id');
+            // $table->integer('parent_id');
             $table->timestamps();
         });
     }
@@ -23,8 +23,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-        Schema::dropIfExists('categories');
-    }
+    // public function down(): void
+    // {
+    //     Schema::dropIfExists('categories');
+    // }
 };
