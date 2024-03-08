@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+//use App\Models\Book;//انا اضفته
+//use App\Models\Author;//انا اضتفه
+
 
 class AuthorController extends Controller
 {

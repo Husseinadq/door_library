@@ -8,7 +8,7 @@
 <body>
     <h1>Create Post</h1>
 
-    <form action="{{ route('author.index') }}" method="POST">
+    <form action="{{ route('author.index') }}" method="POST" >
         @csrf
 
         <label for="name">name:</label>

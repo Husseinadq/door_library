@@ -9,6 +9,23 @@
 
   <form method="POST" action="{{ route('publisher.store') }}" enctype="multipart/form-data">
     @csrf
+
+
+
+
+
+
+    <div class="row mb-3">
+      <label for="pub_name" class="col-sm-3 col-form-label">صورة دار النشر</label>
+      <div class="col-sm-9">
+        <input type="file" class="form-control" name="photo" required>
+       
+      </div>
+    </div>
+
+   
+
+
     <div class="row mb-3">
       <label for="pub_name" class="col-sm-3 col-form-label">اسم دار النشر*</label>
       <div class="col-sm-9">
@@ -20,6 +37,9 @@
         @enderror
       </div>
     </div>
+
+
+
 
     <div class="row mb-3">
       <label for="pub_websit" class="col-sm-3 col-form-label">الموقع الإلكتروني</label>
@@ -33,17 +53,7 @@
       </div>
     </div>
 
-    <div class="row mb-3">
-      <label for="pub_cov" class="col-sm-3 col-form-label">شعار دار النشر</label>
-      <div class="col-sm-9">
-        <input type="file" class="form-control form-control-sm" id="pub_cov" name="pub_cov">
-        @error('pub_cov')
-          <span class="invalid-feedback" role="alert">
-            {{ $message }}
-          </span>
-        @enderror
-      </div>
-    </div>
+   
 
     <div class="row mb-3">
       <label for="pub_dec" class="col-sm-3 col-form-label">الوصف</label>

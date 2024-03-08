@@ -5,10 +5,12 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Publisher;
+use App\Traits\OfferTrait;
 
 
 class PublisherController extends Controller
 {
+  use OfferTrait;
 
 
     public function index()
@@ -29,13 +31,19 @@ class PublisherController extends Controller
 
    public function store(Request $request){
 
+    
+
+     
+      
      $publisher=new Publisher;
+     $publisher->photo=$this->saveImage($request->photo,'adminassets/images/offers');
      $publisher->name=$request->pub_name;
      $publisher->pub_websit=$request->pub_websit;
      $publisher->decripton=$request->pub_dec;
-     $publisher->icon='';
      $publisher->save();
      return redirect()->route('publisher.index');  // Replace 'publishers.index' with your actual route name
+
+
 
       
 
@@ -55,11 +63,11 @@ class PublisherController extends Controller
       {
         $publisher= Publisher::find($id);
 
-        $publisher->name=$request->pub_name;
-        $publisher->pub_websit=$request->pub_websit;
-        $publisher->decripton=$request->pub_dec;
-        $publisher->icon='';
-        $publisher->save();
+        $publisher->photo=$this->saveImage($request->photo,'adminassets/images/offers');
+     $publisher->name=$request->pub_name;
+     $publisher->pub_websit=$request->pub_websit;
+     $publisher->decripton=$request->pub_dec;
+     $publisher->save();
 
         return redirect()->route('publisher.index'); 
 
@@ -72,6 +80,8 @@ class PublisherController extends Controller
     
         $publisher= Publisher::find($id);
         $publisher->delete();
+
+        
 
 
       
