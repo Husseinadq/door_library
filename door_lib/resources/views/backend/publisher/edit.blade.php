@@ -1,65 +1,132 @@
 @extends('backend.layouts.app')
 
 @section('content')
-<main class="main">
+<main class="main"style="background-color: #ffffff;">
 
 <div class="container">
-  <h1 class="h3 mb-3">تعديل دار نشر</h1>
+
 
   <form method="POST" action="{{ route('publisher.update', $publisher->id) }}" enctype="multipart/form-data">
     @csrf
 
 
 
+    <section class="vh-100" style="background-color: #ffffff; ">
+      <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-xl-9">
+                      <br>
+                  <h1 class="text-white mb-4" style="color: teal;">تعديل دار نشر</h1>
 
-    <div class="row mb-3">
-      <label for="photo" class="col-sm-3 col-form-label">صورة دار النشر</label>
-      <div class="col-sm-9">
-        <input type="file" class="form-control" name="photo" value="{{ $publisher->photo}}"  required>
-       
+                  <div class="card" style="border-radius: 15px;">
+                      <div class="card-body">
+
+                          <div class="row align-items-center pt-4 pb-3">
+                              <div class="col-md-3 ps-5">
+
+                                  <h6 class="mb-0">اسم دار النشر</h6>
+
+                              </div>
+                              <div class="col-md-9 pe-5">
+
+                                  <input type="text" class="form-control form-control-lg" id="pub_name"
+                                      name="pub_name" value="{{ $publisher->name }}" required>
+
+
+                                      @error('pub_name')
+                                      <span class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                      </span>
+                                    @enderror
+                            
+
+                              </div>
+                          </div>
+
+                          <hr class="mx-n3">
+
+                          <div class="row align-items-center py-3">
+                              <div class="col-md-3 ps-5">
+
+                                  <h6 class="mb-0">الايميل</h6>
+
+                              </div>
+                              <div class="col-md-9 pe-5">
+
+                                  <input type="email" class="form-control form-control-lg" id="pub_websit"
+                                      name="pub_websit" value="{{ $publisher->pub_websit }}">
+
+                                      @error('pub_websit')
+                                      <span class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                      </span>
+                                    @enderror
+                            
+
+                              </div>
+                          </div>
+
+                          <hr class="mx-n3">
+
+                          <div class="row align-items-center py-3">
+                              <div class="col-md-3 ps-5">
+
+                                  <h6 class="mb-0">الوصف</h6>
+
+                              </div>
+                              <div class="col-md-9 pe-5">
+
+                                  <textarea class="form-control" id="pub_dec" name="pub_dec" rows="3">{{$publisher->decripton}}</textarea>
+                                  @error('pub_dec')
+                                  <span class="invalid-feedback" role="alert">
+                                    {{ $message }}
+                                  </span>
+                                @enderror
+                        
+
+                              </div>
+                          </div>
+
+                          <hr class="mx-n3">
+
+                          <div class="row align-items-center py-3">
+                              <div class="col-md-3 ps-5">
+
+                                  <h6 class="mb-0">شعار الدار</h6>
+
+                              </div>
+                              <div class="col-md-9 pe-5">
+
+                                  <input class="form-control form-control-lg" id="formFileLg" type="file"
+                                      name="photo"  value="{{ $publisher->photo}}"  required>
+
+
+
+                              </div>
+                          </div>
+
+                          <hr class="mx-n3">
+
+                          <div class="px-5 py-4">
+                             
+
+                                  <button type="submit" class="btn btn-primary" id="but1">حفظ التعديلات</button>
+
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+          </div>
       </div>
-    </div>  
-
-    
-   <div class="row mb-3">
-      <label for="pub_name" class="col-sm-3 col-form-label">اسم دار النشر</label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" id="pub_name" name="pub_name" value="{{ $publisher->name }}" required>
-        @error('pub_name')
-          <span class="invalid-feedback" role="alert">
-            {{ $message }}
-          </span>
-        @enderror
-      </div>
-    </div>
-
-    <div class="row mb-3">
-      <label for="pub_websit" class="col-sm-3 col-form-label">الموقع الإلكتروني</label>
-      <div class="col-sm-9">
-        <input type="email" class="form-control" id="pub_websit" name="pub_websit" value="{{ $publisher->pub_websit }}">
-        @error('pub_websit')
-          <span class="invalid-feedback" role="alert">
-            {{ $message }}
-          </span>
-        @enderror
-      </div>
-    </div>
-
-    
-
-    <div class="row mb-3">
-      <label for="pub_dec" class="col-sm-3 col-form-label">الوصف</label>
-      <div class="col-sm-9">
-        <textarea class="form-control" id="pub_dec" name="pub_dec" rows="3">{{ $publisher->decripton }}</textarea>
-        @error('pub_dec')
-          <span class="invalid-feedback" role="alert">
-            {{ $message }}
-          </span>
-        @enderror
-      </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+   
+  <br>
+  <br>
+  <br>
+  <br>
+    <hr>
+  </section>
   </form>
 </div>
 </main>
