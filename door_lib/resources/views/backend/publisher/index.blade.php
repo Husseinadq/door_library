@@ -1,35 +1,45 @@
 @extends('backend.layouts.app')
 
 @section('content')
-
-
     <main class="main">
-<div class="container mt-4">
-    <div class="row">
-        @foreach ($publishers as $publisher)
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <img src="{{asset('adminassets/images/offers/'.$publisher->photo)}}"
-                        alt="avatar" class="rounded-circle img-fluid mb-3" style="width: 150px;">
-                    <h5 class="card-title mb-2">{{ $publisher->name }}</h5>
-                    <p class="card-text text-muted mb-3">{{ $publisher->pub_websit }}</p>
-                    <p class="card-text text-muted">{{ $publisher->decripton }}</p>
 
-                    <div class="btn-group-vertical mt-3" role="group">
-                        <a href="{{ route('publisher.create', $publisher->id) }}"
-                            class="btn btn-primary btn-sm">إضافة كتاب جديد</a>
-                        <a href="{{ route('publisher.edit', $publisher->id) }}"
-                            class="btn btn-secondary btn-sm">تعديل كتاب</a>
-                        <a href="{{ route('publisher.delete', $publisher->id) }}"
-                            class="btn btn-danger btn-sm">حذف كتاب</a>
+
+        <div class="col-2" style="position: fixed;  z-index: 999; width:100%;">
+            <a href="{{ route('publisher.create') }}" class="btn btn-white btn_1"
+                style="width: 100%; background-color: #263238; color: white;">انقر لإضافة دار نشر</a>
+        </div>
+        <br>
+        <br>
+
+        <div class="container">
+
+
+
+            
+
+            @foreach ($publishers as $publisher)
+
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ asset('adminassets/images/offers/' . $publisher->photo) }}" alt="avatar"
+                            class="card-img-top" style="width: 200px; height: 150px; border-radius:50% ">
+                        <div class="card-body">
+                            <h5 class="card-title">اسم دار النشر: {{ $publisher->name }}</h5>
+                            <p class="card-text">موقع الدار: {{ $publisher->pub_websit }}</p>
+                            <p class="card-text">وصف الدار: {{ $publisher->decripton }}</p>
+                            <a href="{{ route('publisher.edit', $publisher->id) }}" class="btn btn-primary"
+                                id="but1">تعديل</a>
+                            <a href="{{ route('publisher.delete', $publisher->id) }}" class="btn btn-primary"
+                                id="but2">حذف</a>
+                        </div>
+
+
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
-</div>
 
-</main>
+
+
+    </main>
 @endsection

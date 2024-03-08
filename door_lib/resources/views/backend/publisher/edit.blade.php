@@ -13,9 +13,9 @@
 
 
     <div class="row mb-3">
-      <label for="pub_name" class="col-sm-3 col-form-label">صورة دار النشر</label>
+      <label for="photo" class="col-sm-3 col-form-label">صورة دار النشر</label>
       <div class="col-sm-9">
-        <input type="file" class="form-control" name="photo" required>
+        <input type="file" class="form-control" name="photo" value="{{ $publisher->photo}}"  required>
        
       </div>
     </div>  

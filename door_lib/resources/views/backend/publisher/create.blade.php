@@ -11,10 +11,6 @@
     @csrf
 
 
-
-
-
-
     <div class="row mb-3">
       <label for="pub_name" class="col-sm-3 col-form-label">صورة دار النشر</label>
       <div class="col-sm-9">
@@ -22,9 +18,6 @@
        
       </div>
     </div>
-
-   
-
 
     <div class="row mb-3">
       <label for="pub_name" class="col-sm-3 col-form-label">اسم دار النشر*</label>

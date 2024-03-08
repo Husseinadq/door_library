@@ -63,11 +63,13 @@ class PublisherController extends Controller
       {
         $publisher= Publisher::find($id);
 
-        $publisher->photo=$this->saveImage($request->photo,'adminassets/images/offers');
-     $publisher->name=$request->pub_name;
-     $publisher->pub_websit=$request->pub_websit;
-     $publisher->decripton=$request->pub_dec;
-     $publisher->save();
+        $file_name=$this->saveImage($request->photo,'adminassets/images/offers');
+
+        $publisher->photo=$file_name;
+        $publisher->name=$request->pub_name;
+        $publisher->pub_websit=$request->pub_websit;
+        $publisher->decripton=$request->pub_dec;
+        $publisher->save();
 
         return redirect()->route('publisher.index'); 
 

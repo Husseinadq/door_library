@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 65%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+}
+
+.card {
+    position: absolute;
+    padding: 1.5em .5em .5em;
+    border-radius: 2em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+#but1 {
+    border-radius: 2em;
+    background-color: teal;
+    color: #ffffff;
+    padding: .5em 1.5em;
+    margin-left: 60px;
+}
+
+#but2 {
+    border-radius: 2em;
+    border-color: rgb(84, 8, 4);
+    background-color: rgb(84, 8, 4);
+    color: #ffffff;
+    padding: .5em 1.5em;
+}
+
+.btn:hover {
+    background-color: rgba(0, 128, 128, 0.7);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
