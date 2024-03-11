@@ -17,6 +17,40 @@
             <li class="nav-item">
                 <a href="#" class="btn btn-primary"
                     id="but1">الذهاب الى الموقع</a>
+
+
+
+                    <a  class="btn btn-primary"
+                    id="but1">اهلاً بك {{Auth::user()->name }}</a>
+
+
+
+                   
+                    
+
+
+                    
+            </li>
+
+
+            <li class="nav-item">
+                
+
+
+                    <form action="{{route('logout')}}" method="POST" class="d-flex" role="search">
+                        @csrf
+                        @method('DELETE')
+                   
+                        <button type="submit" id="but2"  class="btn btn-danger">خروج</button>
+                    </form>
+                        
+                 
+               
+                
+                
+
+
+                    
             </li>
            
            

@@ -4,6 +4,15 @@
     <main class="main" style="background-color: #ffffff;">
         <div class="container">
 
+            <br>
+
+
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+
 
 
 
@@ -15,7 +24,7 @@
                     <div class="container h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
                             <div class="col-xl-9">
-                                    <br>
+                                <br>
                                 <h1 class="text-white mb-4" style="color: teal;">إضافة دار نشر جديد</h1>
 
                                 <div class="card" style="border-radius: 15px;">
@@ -30,14 +39,12 @@
                                             <div class="col-md-9 pe-5">
 
                                                 <input type="text" class="form-control form-control-lg" id="pub_name"
-                                                    name="pub_name" required />
+                                                    name="pub_name" />
 
-                                                    @error('pub_name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                      {{ $message }}
-                                                    </span>
-                                                  @enderror
-                                          
+                                                @error('pub_name')
+                                                    <small class="form-text text-danger">{{ $message }}</small>
+                                                @enderror
+
 
                                             </div>
                                         </div>
@@ -55,12 +62,12 @@
                                                 <input type="email" class="form-control form-control-lg" id="pub_websit"
                                                     name="pub_websit" />
 
-                                                    @error('pub_websit')
-                                                    <span class="invalid-feedback" role="alert">
-                                                      {{ $message }}
-                                                    </span>
-                                                  @enderror
-                                          
+                                                @error('pub_websit')
+                                                    <small class="form-text text-danger">{{ $message }}</small>
+                                                @enderror
+
+
+
 
                                             </div>
                                         </div>
@@ -77,11 +84,9 @@
 
                                                 <textarea class="form-control" id="pub_dec" name="pub_dec" rows="3"></textarea>
                                                 @error('pub_dec')
-                                                <span class="invalid-feedback" role="alert">
-                                                  {{ $message }}
-                                                </span>
-                                              @enderror
-                                      
+                                                    <small class="form-text text-danger">{{ $message }}</small>
+                                                @enderror
+
 
                                             </div>
                                         </div>
@@ -97,7 +102,11 @@
                                             <div class="col-md-9 pe-5">
 
                                                 <input class="form-control form-control-lg" id="formFileLg" type="file"
-                                                    name="photo" required />
+                                                    name="photo" />
+
+                                                @error('photo')
+                                                    <small class="form-text text-danger">{{ $message }}</small>
+                                                @enderror
 
 
                                             </div>
@@ -106,9 +115,10 @@
                                         <hr class="mx-n3">
 
                                         <div class="px-5 py-4">
-                                           
 
-                                                <button type="submit" class="btn btn-primary" id="but1">إضافة دار النشر</button>
+
+                                            <button type="submit" class="btn btn-primary" id="but1">إضافة دار
+                                                النشر</button>
 
                                         </div>
 
@@ -118,12 +128,12 @@
                             </div>
                         </div>
                     </div>
-                 
-                <br>
-                <br>
-                <br>
-                <br>
-                  <hr>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <hr>
                 </section>
 
             </form>
@@ -132,7 +142,7 @@
 
 
 
-            
+
 
 
         </div>
