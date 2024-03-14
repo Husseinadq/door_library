@@ -23,6 +23,7 @@ use App\Http\Controllers\backend\BookController;
 
 // Route::get('/',[DoorController::class,'indexz'])->name('post');
 //Route::post('/',[DoortController::class,'store'])->name('store');
+
 Route::get('book/index',[BookController::class,'index'])->name('book.index');
 Route::get('book/craete',[BookController::class,'create'])->name('book.create');
 Route::post('book/store',[BookController::class,'store'])->name('book.store');
@@ -55,3 +56,11 @@ Route::post('/publisher/update/{id}',[PublisherController::class,'update'])->nam
 
 Route::get('/dashboard/index',[PublisherController::class,'index_dash'])->name('dashboard.index');
 Route::get('/publisher/delete/{id}', [PublisherController::class, 'delete'])->name('publisher.delete');
+
+// Author
+Route::get('author', [AuthorController::class, 'index'])->name('author.index');
+Route::get('author/create', [AuthorController::class, 'create']) ->name('author.create');
+Route::post('author/create', [AuthorController::class, 'store']);
+Route::get('author/{id}/edit', [AuthorController::class, 'edit']);
+Route::put('author/{id}/edit', [AuthorController::class,'update']);
+Route::get('author/{id}/delete', [AuthorController::class,'destory'] )->name('author.delete');

@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model
+class Category extends Model
 {
-    protected $table = 'author';
+    use HasFactory;
 
-    public function posts(): HasMany
-    {
-        return $this->hasMany(Post::class, 'author_id');
-    }
+    protected $table = 'authors';
 
-    public function getAuthorPosts(): array
-    {
-        return $this->posts()->get()->toArray();
-    }
+    protected $fillable =[
+        'name',
+        'description',
+        'is_active'
+    ];
 }
