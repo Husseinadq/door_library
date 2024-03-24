@@ -3,6 +3,15 @@
 @section('content')
 <main class="main"style="background-color: #ffffff;">
 
+    <br>
+
+
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+
 <div class="container">
 
 
@@ -98,8 +107,11 @@
                               <div class="col-md-9 pe-5">
 
                                   <input class="form-control form-control-lg" id="formFileLg" type="file"
-                                      name="photo"  value="{{ $publisher->photo}}"  required>
+                                      name="photo"   placeholder="fghjkl" >
 
+                                     
+
+                                     
 
 
                               </div>
