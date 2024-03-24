@@ -12,35 +12,37 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h4>Add Authore
+                    <h4>Edit Authors
                         <a href="{{ url('authors')}}" class="btn btn-primary float-end">Back</a>
                     </h4>
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ url('authors/create')}}" method="POST">
+                    <form action="{{ url('authors/'.$category->id.'/edit') }}" method="POST">
                         @csrf
+                        @method('POST')
 
                         <div class="mb-3">
                             <label>Name</label>
-                            <input type="text" name="name" value="{{ old('name')}}"/>
+                            <input type="text" name="name" value="{{ $category->name }}" />
                             @error('name') <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="mb-3">
                             <label>Description</label>
-                            <textarea name="description" class="form-control" rows="3">{{ old('description')}}</textarea>
+                            <textarea name="description" class="form-control" rows="3"> {{ $category->description}} </textarea>
                             @error('description') <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <div class="mb-3">
                                 <label>Is Active</label>
-                                <input type="checkbox" name="is_active" {{ old('is_active') == true ? checked: ''}}/>
+
+                                <input type="checkbox" name="is_active" {{ $category->is_active == true ? checked: ''}}/>
                                 @error('is_active') <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="md-3">
-                                <button type="submit" class="btn-primary">Save</button>
+                                <button type="submit" class="btn-primary">Update</button>
                             </div>
                         </div>
                     </form>

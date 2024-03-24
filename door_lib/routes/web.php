@@ -35,6 +35,13 @@ Route::get('book/edit/{id}', [BookController::class, 'edit'])->name('book.edit')
 Route::post('book/update/{id}', [BookController::class, 'update'])->name('book.update');
 Route::get('book/delete/{id}', [BookController::class, 'destroy'])->name('book.destroy');
 
+Route::get('book/index',[BookController::class,'index'])->name('book.index');
+Route::get('book/craete',[BookController::class,'create'])->name('book.create');
+Route::post('book/store',[BookController::class,'store'])->name('book.store');
+Route::get('book/edit/{id}',[BookController::class,'edit'])->name('book.edit');
+Route::post('book/update/{id}',[BookController::class,'update'])->name('book.update');
+Route::get('book/delete/{id}',[BookController::class,'destroy'])->name('book.destroy');
+
 Route::get('category/index', [CategoryController::class, 'index'])->name('category.index');
 Route::get('category/craete', [CategoryController::class, 'create'])->name('category.create');
 Route::post('category/store', [CategoryController::class, 'store'])->name('category.store');
@@ -100,3 +107,10 @@ Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('use
 
 
 });
+// Author
+Route::get('author', [AuthorController::class, 'index'])->name('author.index');
+Route::get('author/create', [AuthorController::class, 'create']) ->name('author.create');
+Route::post('author/create', [AuthorController::class, 'store']);
+Route::get('author/{id}/edit', [AuthorController::class, 'edit']);
+Route::put('author/{id}/edit', [AuthorController::class,'update']);
+Route::get('author/{id}/delete', [AuthorController::class,'destory'] )->name('author.delete');
