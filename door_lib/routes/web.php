@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\BookController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\HomeController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,14 +42,14 @@ Route::post('book/store',[BookController::class,'store'])->name('book.store');
 Route::get('book/edit/{id}',[BookController::class,'edit'])->name('book.edit');
 Route::post('book/update/{id}',[BookController::class,'update'])->name('book.update');
 Route::get('book/delete/{id}',[BookController::class,'destroy'])->name('book.destroy');
-=======
+
 Route::get('book/index', [BookController::class, 'index'])->name('book.index');
 Route::get('book/craete', [BookController::class, 'create'])->name('book.create');
 Route::post('book/store', [BookController::class, 'store'])->name('book.store');
 Route::get('book/edit/{id}', [BookController::class, 'edit'])->name('book.edit');
 Route::post('book/update/{id}', [BookController::class, 'update'])->name('book.update');
 Route::get('book/delete/{id}', [BookController::class, 'destroy'])->name('book.destroy');
->>>>>>> 5faddf16da77373fd16bc48b8f8a8d9f47784a49
+
 
 Route::get('category/index', [CategoryController::class, 'index'])->name('category.index');
 Route::get('category/craete', [CategoryController::class, 'create'])->name('category.create');
@@ -56,6 +57,13 @@ Route::post('category/store', [CategoryController::class, 'store'])->name('categ
 Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::post('category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::get('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+Route::get('wishlist/create', [WishlistController::class, 'create']) ->name('wishlist.create');
+Route::post('wishlist/create', [WishlistController::class, 'store']);
+Route::get('wishlist/{id}/edit', [WishlistController::class, 'edit']);
+Route::put('wishlist/{id}/edit', [WishlistController::class,'update']);
+Route::get('wishlist/{id}/delete', [WishlistController::class,'destory'] )->name('wishlist.delete');
 
 
 // Route::resource('books', BookController::class);
@@ -122,6 +130,3 @@ Route::post('author/create', [AuthorController::class, 'store']);
 Route::get('author/{id}/edit', [AuthorController::class, 'edit']);
 Route::put('author/{id}/edit', [AuthorController::class,'update']);
 Route::get('author/{id}/delete', [AuthorController::class,'destory'] )->name('author.delete');
-=======
-});
->>>>>>> 5faddf16da77373fd16bc48b8f8a8d9f47784a49
