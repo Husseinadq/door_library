@@ -112,10 +112,6 @@ class PublisherController extends Controller
 
 
 
-  public function index_dash()
-  {
-    return view('backend.dashboard.index');
-  }
 
 
   // protected function getrules()
