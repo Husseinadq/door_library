@@ -32,14 +32,7 @@
                 <div class="card card-inverse card-primary">
                     <div class="card-block p-b-0">
                         <div class="btn-group pull-left">
-                            <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon-settings"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                           
                         </div>
                         <h4 class="m-b-0">200</h4>
                         <p>عدد الكتب</p>
@@ -54,9 +47,7 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="card card-inverse card-info">
                     <div class="card-block p-b-0">
-                        <button type="button" class="btn btn-transparent active p-a-0 pull-left">
-                            <i class="icon-location-pin"></i>
-                        </button>
+                       
                         <h4 class="m-b-0">70</h4>
                         <p>عدد المؤلفين</p>
                     </div>
@@ -71,16 +62,10 @@
                 <div class="card card-inverse card-warning">
                     <div class="card-block p-b-0">
                         <div class="btn-group pull-left">
-                            <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon-settings"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                           
                         </div>
-                        <h4 class="m-b-0">20</h4>
+                        <h4 class="m-b-0">{{$publishers}}</h4>
+                        {{-- <h4 class="m-b-0">{{\app\Models\Publisher::count()}}</h4> --}}
                         <p>عدد دور النشر</p>
                     </div>
                     <div class="chart-wrapper" style="height:70px;">
@@ -94,16 +79,10 @@
                 <div class="card card-inverse card-danger">
                     <div class="card-block p-b-0">
                         <div class="btn-group pull-left">
-                            <button type="button" class="btn btn-transparent active dropdown-toggle p-a-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon-settings"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                          
+                           
                         </div>
-                        <h4 class="m-b-0">30</h4>
+                        <h4 class="m-b-0">{{$users}}</h4>
                         <p>عدد المستخدمين</p>
                     </div>
                     <div class="chart-wrapper p-x-1" style="height:70px;">

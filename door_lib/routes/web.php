@@ -7,7 +7,9 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\AuthorController;
 use App\Http\Controllers\backend\PublisherController;
 use App\Http\Controllers\backend\BookController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\HomeController;
+use App\Http\Controllers\backend\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,8 +56,7 @@ Route::group(
    ['middleware' => 'guest'],
    function () {
 
-      Route::get('/register', [AuthController::class, 'register'])->name('register');
-      Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+     
 
       Route::get('/login', [AuthController::class, 'login'])->name('login');
       Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
@@ -64,10 +65,10 @@ Route::group(
 
 
 Route::group(['middleware' => 'auth'], function () {
-   Route::get('/dashboard/index', [PublisherController::class, 'index_dash'])->name('dashboard.index');
+   Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
 
 
-   Route::get('/home', [HomeController::class, 'index']);
+   Route::get('/dashboard', [DashboardController::class, 'index']);
    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
@@ -82,5 +83,20 @@ Route::get('/publisher/edit/{id}', [PublisherController::class, 'edit'])->name('
 Route::post('/publisher/update/{id}', [PublisherController::class, 'update'])->name('publisher.update');
 
 Route::get('/publisher/delete/{id}', [PublisherController::class, 'delete'])->name('publisher.delete');
+
+Route::get('/user/index', [UserController::class,'index'])->name('user.index');
+
+Route::get('/user/create', [UserController::class,'create'])->name('user.create');
+Route::post('/user/store', [UserController::class,'store'])->name('user.store');
+
+Route::post('/user/update/{id}', [UserController::class,'update'])->name('user.update');
+Route::get('/user/edit/{id}', [UserController::class,'edit'])->name('user.edit');
+
+
+
+Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+
+
+
 
 });

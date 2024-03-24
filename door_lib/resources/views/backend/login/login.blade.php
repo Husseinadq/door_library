@@ -51,7 +51,7 @@
                                 <button type="submit"  class="btn btn-primary">Login</button>
 
                                 <br>
-                                <p><a href="{{route('register')}}" class="link-underline-primary ">Register</a></p>
+                               
 
 
 
