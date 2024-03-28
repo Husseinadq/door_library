@@ -4,7 +4,7 @@ use App\Http\Controllers\backend\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoorController;
 use App\Http\Controllers\backend\CategoryController;
-use App\Http\Controllers\backend\AuthorController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\backend\PublisherController;
 use App\Http\Controllers\backend\BookController;
 use App\Http\Controllers\backend\DashboardController;
@@ -65,6 +65,13 @@ Route::get('wishlist/{id}/edit', [WishlistController::class, 'edit']);
 Route::put('wishlist/{id}/edit', [WishlistController::class,'update']);
 Route::get('wishlist/{id}/delete', [WishlistController::class,'destory'] )->name('wishlist.delete');
 
+Route::get('author', [AuthorController::class, 'index'])->name('author.index');
+Route::get('author/create', [AuthorController::class, 'create']) ->name('author.create');
+Route::post('author/create', [AuthorController::class, 'store']);
+Route::get('author/{id}/edit', [AuthorController::class, 'edit']);
+Route::put('author/{id}/edit', [AuthorController::class,'update']);
+Route::get('author/{id}/delete', [AuthorController::class,'destory'] )->name('author.delete');
+
 
 // Route::resource('books', BookController::class);
 
@@ -123,10 +130,4 @@ Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('use
 
 
 });
-// Author
-Route::get('author', [AuthorController::class, 'index'])->name('author.index');
-Route::get('author/create', [AuthorController::class, 'create']) ->name('author.create');
-Route::post('author/create', [AuthorController::class, 'store']);
-Route::get('author/{id}/edit', [AuthorController::class, 'edit']);
-Route::put('author/{id}/edit', [AuthorController::class,'update']);
-Route::get('author/{id}/delete', [AuthorController::class,'destory'] )->name('author.delete');
+
