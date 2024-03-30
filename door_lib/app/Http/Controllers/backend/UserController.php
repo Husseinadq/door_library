@@ -46,10 +46,6 @@ class UserController extends Controller
 
 
 
-
-
-
-
   }
 
 
@@ -69,7 +65,7 @@ class UserController extends Controller
   {
     $user = User::find($id);
 
-    return view('backend.login.edit', compact('user'));
+    return view('backend.login.modal.edit', compact('user'));
 
 
   }
@@ -84,6 +80,18 @@ class UserController extends Controller
     
     $user->name = $request->user_name;
     $user->email = $request->user_email;
+   
+    $user->save();
+
+    return redirect()->back()->with(['success' => 'تم التعديل بنجاح']);
+  }
+
+
+
+  public function updatePassword(Request $request, $id)
+  {
+    $user = User::find($id);
+
     $user->password = $request->user_pass;
     $user->save();
 
@@ -105,5 +113,47 @@ class UserController extends Controller
 
 
     return redirect()->route('user.index')->with('success', 'user deleted successfully!');
+  }
+
+
+  public function signup()
+  {
+    return view('backend.login.loginPublisher');
+  }
+
+
+  public function publisherUsers()
+  {
+   
+    $users = User::where('role', 0)->get();
+    
+      $title='create';
+    
+         return view('backend.publisher.publisherUsers', compact('users', 'title'));
+  }
+
+
+  public function updateState($userId)
+  {
+    $user =User::find($userId);
+
+    if($user)
+    {
+      if($user->status)
+      {
+        $user->status =0;
+      }else
+      {
+        $user->status =1;
+
+      }
+
+      $user->save();
+    }
+
+    return back();
+
+
+
   }
 }

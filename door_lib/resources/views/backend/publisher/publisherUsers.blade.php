@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header" style="background-color: white">
-                            <h2>المستخدمين</h2>
+                            <h2>مستخدمين دور النشر</h2>
                         </div>
                         <div class="card-body">
 
@@ -20,6 +20,7 @@
                                             <th>#</th>
                                             <th>الاسم</th>
                                             <th>الايميل</th>
+                                            <th>الحالة</th>
 
 
                                         </tr>
@@ -30,6 +31,13 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
+                                                <td>
+
+                                                    <a href="users/{{$user->id}}" class="btn btn-sm btn-{{$user->status ? 'success' : 'danger'}}">
+                                                        {{$user->status ? 'Enable' : 'Disable'}}
+                                                    </a>
+                                                </td>
+
 
 
                                                 <td>

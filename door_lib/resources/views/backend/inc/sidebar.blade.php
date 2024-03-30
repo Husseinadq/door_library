@@ -11,7 +11,7 @@
              <li class="nav-item">
                 <a class="nav-link" href="{{route("user.create")}}"><i class="icon-user-follow"></i>تسجيل مستخدم </a>
                 <a class="nav-link" href="{{route("user.index")}}"><i class="icon-people"></i> قائمة المستخدمين</a>
-                <a class="nav-link" href="#"><i class="icon-user-following"></i> وصول المستخدم</a>
+                <a class="nav-link" href="{{route("publisher.users")}}"><i class="icon-user-following"></i> وصول المستخدم</a>
             </li>
 
             <li class="nav-title">

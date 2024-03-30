@@ -22,14 +22,8 @@
 
                     <a  class="btn btn-primary"
                     id="but1">اهلاً بك {{Auth::user()->name }}</a>
-
-
-
-                   
                     
-
-
-                    
+    
             </li>
 
 

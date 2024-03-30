@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('pub_websit')->nullable();
             $table->string('decripton')->nullable();
             $table->string('photo')->nullable();
+            $table->string('password');
             $table->timestamps();
         });
     }

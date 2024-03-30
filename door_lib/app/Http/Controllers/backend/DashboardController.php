@@ -18,9 +18,24 @@ class DashboardController extends Controller
 
   $users = User::count();
 
-  
-
-
-    return view('backend.dashboard.index', compact('publishers','users'));
+  return view('backend.dashboard.index', compact('publishers','users'));
   }
+
+
+
+
+
+
+
+  public function publisherHome()
+  {
+    
+  $publishers = Publisher::count();
+
+  $users = User::count();
+    return view('backend.dashboard.publisher',compact('publishers','users'));
+  }
+
+
+  
 }

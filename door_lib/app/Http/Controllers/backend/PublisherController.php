@@ -24,6 +24,9 @@ class PublisherController extends Controller
     return view('backend.publisher.index', compact('publishers', 'title'));
   }
 
+
+  
+
   public function create()
   {
     return view('backend.publisher.create');
@@ -58,6 +61,7 @@ class PublisherController extends Controller
     $publisher->photo = $this->saveImage($request->photo, 'adminassets/images/offers');
     $publisher->name = $request->pub_name;
     $publisher->pub_websit = $request->pub_websit;
+    $publisher->password =$request->pass_login;
     $publisher->decripton = $request->pub_dec;
     $publisher->save();
     return redirect()->back()->with(['success' => 'تم إضافة العرض بنجاح']);  // Replace 'publishers.index' with your actual route name
@@ -106,6 +110,9 @@ class PublisherController extends Controller
 
     return redirect()->route('publisher.index')->with('success', 'Publisher deleted successfully!');
   }
+
+
+  
 
 
 

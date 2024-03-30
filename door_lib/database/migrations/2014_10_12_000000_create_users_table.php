@@ -18,11 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('full_name');
-            $table->date('date_of_birth');
-            $table->enum('gender', ['male', 'female', 'other']);
-            $table->string('country_key');
-            $table->string('phone');
+            $table->boolean('role')->default('0');
+            $table->integer('status')->default('1');
+
+          
         });
     }
 

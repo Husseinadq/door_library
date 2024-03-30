@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\backend;
+use App\Models\Author;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+
 
 class AuthorController extends Controller
 {
@@ -24,6 +27,7 @@ class AuthorController extends Controller
             'description' => 'required|max:255|string',
             'is_active' => 'sometimes'
         ]);
+        
 
         Author::create([
             'name' => $request->name,

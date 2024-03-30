@@ -35,7 +35,7 @@ Route::get('book/edit/{id}', [BookController::class, 'edit'])->name('book.edit')
 Route::post('book/update/{id}', [BookController::class, 'update'])->name('book.update');
 Route::get('book/delete/{id}', [BookController::class, 'destroy'])->name('book.destroy');
 
-Route::get('book/index',[BookController::class,'index'])->name('book.index');
+Route::get('book/index',[BookController::class,'index'])->name('book.index')->middleware('role');
 Route::get('book/craete',[BookController::class,'create'])->name('book.create');
 Route::post('book/store',[BookController::class,'store'])->name('book.store');
 Route::get('book/edit/{id}',[BookController::class,'edit'])->name('book.edit');
@@ -72,37 +72,43 @@ Route::group(
 
 
 Route::group(['middleware' => 'auth'], function () {
-   Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
+   Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('role');
 
 
-   Route::get('/dashboard', [DashboardController::class, 'index']);
+   Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('role');
    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
    
 
-Route::get('/publisher/index', [PublisherController::class, 'index'])->name('publisher.index');
-Route::get('/publisher/create', [PublisherController::class, 'create'])->name('publisher.create');
-Route::post('/publisher/store', [PublisherController::class, 'store'])->name('publisher.store');
-Route::get('/publisher/edit/{id}', [PublisherController::class, 'edit'])->name('publisher.edit');
+Route::get('/publisher/index', [PublisherController::class, 'index'])->name('publisher.index')->middleware('role');
+Route::get('/publisher/create', [PublisherController::class, 'create'])->name('publisher.create')->middleware('role');
+
+Route::get('/publisher/edit/{id}', [PublisherController::class, 'edit'])->name('publisher.edit')->middleware('role');
+
+Route::post('/publisher/store', [PublisherController::class, 'store'])->name('publisher.store')->middleware('role');
+Route::post('/publisher/update/{id}', [PublisherController::class, 'update'])->name('publisher.update')->middleware('role');
+
+Route::get('/publisher/delete/{id}', [PublisherController::class, 'delete'])->name('publisher.delete')->middleware('role');
+
+Route::get('/user/index', [UserController::class,'index'])->name('user.index')->middleware('role');
+
+Route::get('/user/create', [UserController::class,'create'])->name('user.create')->middleware('role');
 
 
-Route::post('/publisher/update/{id}', [PublisherController::class, 'update'])->name('publisher.update');
-
-Route::get('/publisher/delete/{id}', [PublisherController::class, 'delete'])->name('publisher.delete');
-
-Route::get('/user/index', [UserController::class,'index'])->name('user.index');
-
-Route::get('/user/create', [UserController::class,'create'])->name('user.create');
-Route::post('/user/store', [UserController::class,'store'])->name('user.store');
-
-Route::post('/user/update/{id}', [UserController::class,'update'])->name('user.update');
-Route::get('/user/edit/{id}', [UserController::class,'edit'])->name('user.edit');
+Route::post('/user/update/{id}', [UserController::class,'update'])->name('user.update')->middleware('role');
+Route::post('/user-updatepassword/{id}', [UserController::class,'updatePassword'])->name('user.updatePassword')->middleware('role');
+Route::get('/user/edit/{id}', [UserController::class,'edit'])->name('user.edit')->middleware('role');
 
 
 
-Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete')->middleware('role');
 
+
+
+Route::get('publisher/users', [UserController::class, 'publisherUsers'])->name('publisher.users')->middleware('role');
+
+Route::get('users/{id}',[UserController::class,'updateState']);
 
 
 
@@ -114,3 +120,14 @@ Route::post('author/create', [AuthorController::class, 'store']);
 Route::get('author/{id}/edit', [AuthorController::class, 'edit']);
 Route::put('author/{id}/edit', [AuthorController::class,'update']);
 Route::get('author/{id}/delete', [AuthorController::class,'destory'] )->name('author.delete');
+
+//we need to return it to his place
+
+
+Route::get('singup-publisher', [UserController::class,'signup'] )->name('publisher.singup');
+
+Route::post('/user/store', [UserController::class,'store'])->name('user.store');
+Route::get('publisher/home', [DashboardController::class,'publisherHome'])->name('publisher.home');
+
+
+
