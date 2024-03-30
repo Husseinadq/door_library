@@ -33,7 +33,7 @@
                                                 <td>{{ $user->email }}</td>
                                                 <td>
 
-                                                    <a href="users/{{$user->id}}" class="btn btn-sm btn-{{$user->status ? 'success' : 'danger'}}">
+                                                    <a href="{{route('change-pub-status',$user->id)}}" class="btn btn-sm btn-{{$user->status ? 'success' : 'danger'}}">
                                                         {{$user->status ? 'Enable' : 'Disable'}}
                                                     </a>
                                                 </td>

@@ -66,6 +66,7 @@ Route::group(
      
 
       Route::get('/login', [AuthController::class, 'login'])->name('login');
+      Route::get('login-p',[AuthController::class,'login'])->name('login-page');
       Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
    }
 );
@@ -108,7 +109,7 @@ Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('use
 
 Route::get('publisher/users', [UserController::class, 'publisherUsers'])->name('publisher.users')->middleware('role');
 
-Route::get('users/{id}',[UserController::class,'updateState']);
+Route::get('user/{id}',[UserController::class,'updateState'])->name('change-pub-status');
 
 
 
@@ -126,7 +127,8 @@ Route::get('author/{id}/delete', [AuthorController::class,'destory'] )->name('au
 
 Route::get('singup-publisher', [UserController::class,'signup'] )->name('publisher.singup');
 
-Route::post('/user/store', [UserController::class,'store'])->name('user.store');
+Route::post('/user/store/publisher', [UserController::class,'store'])->name('user.store');
+Route::post('/user/store', [UserController::class,'storeAdmin'])->name('user.storeAdmin');
 Route::get('publisher/home', [DashboardController::class,'publisherHome'])->name('publisher.home');
 
 

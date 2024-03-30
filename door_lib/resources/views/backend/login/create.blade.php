@@ -16,7 +16,7 @@
 
 
 
-            <form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('user.storeAdmin') }}" enctype="multipart/form-data">
                 @csrf
 
 
@@ -112,6 +112,9 @@
 
                                             </div>
                                         </div>
+
+
+                                        
 
                                        <br>
 

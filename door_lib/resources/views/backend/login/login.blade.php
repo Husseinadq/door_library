@@ -46,6 +46,7 @@
 
                             <a href="{{route('publisher.singup')}}" >Click to Signup Publisher</a>
                         </div>
+                        
 
                         <div class="mb-3">
                             <div class="d-grid">

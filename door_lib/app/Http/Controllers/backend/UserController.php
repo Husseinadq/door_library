@@ -11,25 +11,44 @@ use PhpParser\Node\Expr\FuncCall;
 
 class UserController extends Controller
 {
-   
-    public function index()
-    {
-        
+
+  public function index()
+  {
+
 
     $users = User::all();
-    
-      $title='create';
-    
-         return view('backend.login.index', compact('users', 'title'));
-    }
 
-    public function create()
-    {
-        return view('backend.login.create');
+    $title = 'create';
 
-    }
+    return view('backend.login.index', compact('users', 'title'));
+  }
 
-   
+  public function create()
+  {
+    return view('backend.login.create');
+  }
+
+
+  public function storeAdmin(UserRequest $request)
+  {
+
+
+
+
+    $user = new User;
+
+    $user->name = $request->user_name;
+    $user->email = $request->user_email;
+    $user->password = $request->user_pass;
+    $user->role = 1;
+    $user->save();
+    return redirect()->back()->with(['success' => 'تم إضافة المستخدم بنجاح']);  // Replace 'publishers.index' with your actual route name
+
+
+
+  }
+
+
   public function store(UserRequest $request)
   {
 
@@ -37,10 +56,12 @@ class UserController extends Controller
 
 
     $user = new User;
-    
+
     $user->name = $request->user_name;
     $user->email = $request->user_email;
     $user->password = $request->user_pass;
+    $user->role = 0;
+
     $user->save();
     return redirect()->back()->with(['success' => 'تم إضافة المستخدم بنجاح']);  // Replace 'publishers.index' with your actual route name
 
@@ -66,8 +87,6 @@ class UserController extends Controller
     $user = User::find($id);
 
     return view('backend.login.modal.edit', compact('user'));
-
-
   }
 
 
@@ -75,12 +94,12 @@ class UserController extends Controller
   {
     $user = User::find($id);
 
-    
 
-    
+
+
     $user->name = $request->user_name;
     $user->email = $request->user_email;
-   
+
     $user->save();
 
     return redirect()->back()->with(['success' => 'تم التعديل بنجاح']);
@@ -124,36 +143,20 @@ class UserController extends Controller
 
   public function publisherUsers()
   {
-   
+
     $users = User::where('role', 0)->get();
-    
-      $title='create';
-    
-         return view('backend.publisher.publisherUsers', compact('users', 'title'));
+
+    $title = 'create';
+
+    return view('backend.publisher.publisherUsers', compact('users', 'title'));
   }
 
 
-  public function updateState($userId)
+  public function updateState($id)
   {
-    $user =User::find($userId);
-
-    if($user)
-    {
-      if($user->status)
-      {
-        $user->status =0;
-      }else
-      {
-        $user->status =1;
-
-      }
-
-      $user->save();
-    }
-
+    $user = User::find($id);
+    $user->status = !$user->status;
+    $user->save();
     return back();
-
-
-
   }
 }

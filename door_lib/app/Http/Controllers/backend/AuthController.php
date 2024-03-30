@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\backend;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -9,14 +10,14 @@ use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
-    
+
     public function register()
     {
-        return view('backend.login.register'); 
+        return view('backend.login.register');
     }
 
 
-    
+
 
     public function login()
     {
@@ -47,7 +48,6 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect()->route('login');
-
     }
 
 
@@ -55,28 +55,32 @@ class AuthController extends Controller
     public function loginPost(Request $request)
     {
 
-       $input = $request->all();
+        $input = $request->all();
 
-       $this->validate($request,[
+        $this->validate($request, [
 
-        'email'=>'required|email',
-        'password'=>'required'
+            'email' => 'required|email',
+            'password' => 'required'
 
-       ]);
+        ]);
 
-       if(auth()->attempt(array('email'=>$input['email'],'password'=>$input['password']))){
-        if (auth()->user()-> role == 1){
+        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
+           
+            if (auth()->user()->status == 1) {
+                if (auth()->user()->role == 1) {
 
-            return redirect()->route('dashboard.index');
+                    return redirect()->route('dashboard.index');
+                } else {
+                    return redirect()->route('publisher.home');
+                }
+            } else {
+                Auth::logout();
+                return redirect()->route('login-page')->with('error', 'tell you admin give you access');
+            }
+        } else {
 
-        }else
-        {
-          return redirect()->route('publisher.home');   
-        }
-
-       }else{
-
-         return redirect('')->route('login')->with('error','Input prper email  or pasword');
-       };
+            return redirect()->route('login-page')->with('error', 'Input prper email  or pasword');
+            // return view('backend.login.login');
+        };
     }
 }
