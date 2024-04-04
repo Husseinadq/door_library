@@ -1,4 +1,4 @@
-@extends('layouts.app-web-layout')
+@extends('backend.layouts.app-web-layout')
 @section('content')
 
    <div class="container mt-5">
@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Categories
+                    <h4>Authors
                         <a href="{{ url('authors/create')}}" class="btn btn-primary float-end">Add Author</a>
                     </h4>
                 </div>
@@ -23,7 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $item)
+                            @foreach ($authors as $item)
                             <tr>
                                 <td> {{$item->id}}  </td>
                                 <td>{{$item->name}}  </td>
